@@ -11,7 +11,6 @@ var myChars = [...str]
 input.forEach(account => {
   let digit
   account.mfgId = MfgId.toString().replace(/,/g,'')
-  console.log(account)
   output.push(account)
   recordsForCSV.push({address: account.address, email: account.email, mfgId: account.mfgId})
   
@@ -46,10 +45,12 @@ const csvWriter = createCsvWriter({
 })
 
 csvWriter.writeRecords(recordsForCSV)
+console.log('csv output file created')
 
 var json = JSON.stringify(output)
 
-fs.writeFile('output/MfgOutput.json', json, 'utf8', function (err) {
+fs.writeFile('output/MfgOutput.json', json, 'utf8', (err => {
     if (err) { return console.log(err) }
-    console.log('json config file written!')
+    console.log('json output file created')
   })
+)
