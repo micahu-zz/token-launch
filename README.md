@@ -1,6 +1,6 @@
 # token-launch
 
-1.  add ```export.json``` file to the root
+1.  add ```input.json``` file to the root
 
 2.  ```node script.js```
 
